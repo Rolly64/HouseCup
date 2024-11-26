@@ -29,6 +29,8 @@ public class Course {
     private List<Teacher> teacherList;
     @OneToMany(mappedBy = "course")
     private List<Module> moduleList;
+    @OneToOne(mappedBy = "course")
+    private Subscription subscription;
 
     public Course(){}
     public Course(long id, long studentQty, long totalHours, String title, String character, String description, String type, String program, double price, LocalDate startingDate, LocalDate endingDate) {

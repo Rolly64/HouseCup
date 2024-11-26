@@ -18,6 +18,8 @@ public class Student {
     private Course course;
     @OneToMany(mappedBy = "student")
     private List<StudentFeedback> studentFeedbackList;
+    @OneToMany(mappedBy = "student") // va bene che sia "student" più volte???
+    private List<Subscription> subscriptionList;
 
     public Student(){}
     public Student(long id, String name, String surname, Course course) {

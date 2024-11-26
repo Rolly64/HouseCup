@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import org.generation.italy.HouseCup.model.enums.TeacherStatus;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Access(AccessType.FIELD)
@@ -22,6 +23,8 @@ public class Teacher {
     @ManyToOne
     @JoinColumn(name = "course_id")
     private Course course;
+    @OneToMany(mappedBy = "teacher")
+    private List<Knowledge> knowledgeList;
 
     public Teacher() {}
 
