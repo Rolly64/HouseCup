@@ -2,7 +2,7 @@ package org.generation.italy.HouseCup.model.entities;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -20,14 +20,18 @@ public class Course {
     private String title, character, description, type, program;
     private double price;
     @Column(name="starting_date")
-    private Date startingDate;
+    private LocalDate startingDate;
     @Column(name="ending_date")
-    private Date endingDate;
+    private LocalDate endingDate;
     @OneToMany(mappedBy = "course")
     private List<Student> studentList;
+    @OneToMany(mappedBy = "course")
+    private List<Teacher> teacherList;
+    @OneToMany(mappedBy = "course")
+    private List<Module> moduleList;
 
     public Course(){}
-    public Course(long id, long studentQty, long totalHours, String title, String character, String description, String type, String program, double price, Date startingDate, Date endingDate) {
+    public Course(long id, long studentQty, long totalHours, String title, String character, String description, String type, String program, double price, LocalDate startingDate, LocalDate endingDate) {
         this.id = id;
         this.studentQty = studentQty;
         this.totalHours = totalHours;
@@ -68,10 +72,10 @@ public class Course {
     public double getPrice() {
         return price;
     }
-    public Date getStartingDate() {
+    public LocalDate getStartingDate() {
         return startingDate;
     }
-    public Date getEndingDate() {
+    public LocalDate getEndingDate() {
         return endingDate;
     }
 
@@ -102,10 +106,10 @@ public class Course {
     public void setPrice(double price) {
         this.price = price;
     }
-    public void setStartingDate(Date startingDate) {
+    public void setStartingDate(LocalDate startingDate) {
         this.startingDate = startingDate;
     }
-    public void setEndingDate(Date endingDate) {
+    public void setEndingDate(LocalDate endingDate) {
         this.endingDate = endingDate;
     }
 
