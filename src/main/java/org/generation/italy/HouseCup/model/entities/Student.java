@@ -2,6 +2,8 @@ package org.generation.italy.HouseCup.model.entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Access(AccessType.FIELD)
 @Table(name="students")
@@ -14,6 +16,8 @@ public class Student {
     @ManyToOne
     @JoinColumn(name="course_id")
     private Course course;
+    @OneToMany(mappedBy = "student")
+    private List<StudentFeedback> studentFeedbackList;
 
     public Student(){}
     public Student(long id, String name, String surname, Course course) {
