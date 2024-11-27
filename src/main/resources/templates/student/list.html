@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista studenti</title>
+</head>
+<body>
+  <a href="@{'/students/create'}">Crea studente</a>
+  <table border="1">
+    <tr>
+      <th>name</th> <th>surname</th> <th>background</th> <th>email</th> <th>sex</th> <th>dob</th> <th>prefect</th>
+      <th>titleOfStudy</th> <th>phoneNumber</th> <th>course</th> <th>house</th> <th>studentScores</th>
+    </tr>
+    <tr th:each="student:${STUDENT}">
+      <td th:text="${student.name}"></td>
+      <td th:text="${student.surname}"></td>
+      <td th:text="${student.background}"></td>
+      <td th:text="${student.email}"></td>
+      <td th:text="${student.sex}"></td>
+      <td th:text="${student.dob}"></td>
+      <td th:text="${student.prefect}"></td>
+      <td th:text="${student.titleOfStudy}"></td>
+      <td th:text="${student.phoneNumber}"></td>
+      <td th:text="${student.course}"></td>
+      <td th:text="${student.house}"></td>
+      <td th:text="${student.studentScores}"></td>
+    </tr>
+  </table>
+</body>
+</html>
